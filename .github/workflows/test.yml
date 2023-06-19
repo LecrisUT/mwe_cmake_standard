@@ -1,0 +1,33 @@
+name: test
+run-name: Run tests
+
+on:
+  push:
+  pull_request:
+  workflow_call:
+
+jobs:
+
+  test-c11:
+    name: Run with C11 standard
+    runs-on: ubuntu-latest
+    container: ghcr.io/lecrisut/dev-env:f37
+    steps:
+      - uses: actions/checkout@v3
+      - uses: lukka/get-cmake@latest
+      - name: Run CMake configuration for C11 toolchain
+        uses: lukka/run-cmake@v10.3
+        with:
+          workflowPreset: C11
+
+  test-c23:
+    name: Run with C23 standard
+    runs-on: ubuntu-latest
+    container: ghcr.io/lecrisut/dev-env:f37
+    steps:
+      - uses: actions/checkout@v3
+      - uses: lukka/get-cmake@latest
+      - name: Run CMake configuration for C11 toolchain
+        uses: lukka/run-cmake@v10.3
+        with:
+          workflowPreset: C23

@@ -1,0 +1,75 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "C11",
+      "displayName": "Configure preset with C11",
+      "binaryDir": "cmake-build-C11",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": {
+          "type": "FILEPATH",
+          "value": "gcc"
+        }
+      }
+    },
+    {
+      "name": "C23",
+      "displayName": "Configure preset with C23",
+      "binaryDir": "cmake-build-C23",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": {
+          "type": "FILEPATH",
+          "value": "gcc"
+        },
+        "CMAKE_C_STANDARD": {
+          "type": "23",
+          "value": "STRING"
+        }
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "C11",
+      "displayName": "Build preset with C11",
+      "cleanFirst": true,
+      "configurePreset": "C11"
+    },
+    {
+      "name": "C23",
+      "displayName": "Build preset with C23",
+      "cleanFirst": true,
+      "configurePreset": "C23"
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "C11",
+      "displayName": "Workflow with C11",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "C11"
+        },
+        {
+          "type": "build",
+          "name": "C11"
+        }
+      ]
+    },
+    {
+      "name": "C23",
+      "displayName": "Workflow with C23",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "C23"
+        },
+        {
+          "type": "build",
+          "name": "C23"
+        }
+      ]
+    }
+  ]
+}
