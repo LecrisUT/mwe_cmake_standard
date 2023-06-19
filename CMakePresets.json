@@ -22,8 +22,8 @@
           "value": "gcc"
         },
         "CMAKE_C_STANDARD": {
-          "type": "23",
-          "value": "STRING"
+          "type": "STRING",
+          "value": "23"
         }
       }
     }
